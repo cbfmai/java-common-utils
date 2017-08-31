@@ -2,6 +2,8 @@ package com.imdnd.common.util;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
@@ -28,12 +30,12 @@ public class CryptoUtils {
         }
 
         try {
-            SecretKeySpec keySpec = new SecretKeySpec(strKey.getBytes(), "AES");
+            SecretKeySpec keySpec = new SecretKeySpec(strKey.getBytes(Charset.forName("UTF-8")), "AES");
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.ENCRYPT_MODE, keySpec);
-            byte[] encrypted = cipher.doFinal(strClearText.getBytes());
+            byte[] encrypted = cipher.doFinal(strClearText.getBytes(Charset.forName("UTF-8")));
             Base64.Encoder encoder = Base64.getEncoder();
-            return new String(encoder.encode(encrypted));
+            strData = new String(encoder.encode(encrypted), StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,13 +48,13 @@ public class CryptoUtils {
         }
         String strData = null;
         try {
-            SecretKeySpec keySpec = new SecretKeySpec(strKey.getBytes(), "AES");
+            SecretKeySpec keySpec = new SecretKeySpec(strKey.getBytes(Charset.forName("UTF-8")), "AES");
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, keySpec);
             Base64.Decoder decoder = Base64.getDecoder();
-            byte[] decryptedBase64 = decoder.decode(strEncrypted.getBytes());
+            byte[] decryptedBase64 = decoder.decode(strEncrypted.getBytes(Charset.forName("UTF-8")));
             byte[] decrypted = cipher.doFinal(decryptedBase64);
-            strData = new String(decrypted);
+            strData = new String(decrypted, StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }

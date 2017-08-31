@@ -1,5 +1,6 @@
 package com.imdnd.common.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -185,15 +186,18 @@ public class RegexUtils {
         String strDay = idStr.substring(12, 14);// 月份
         GregorianCalendar gc = new GregorianCalendar();
         SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+
         try {
             if ((gc.get(Calendar.YEAR) - Integer.parseInt(strYear)) > 150
                     || (gc.getTime().getTime() - s.parse(strYear + "-" + strMonth + "-" + strDay).getTime()) < 0) {
                 //身份证生日不在有效范围。
                 return false;
             }
-        } catch (Exception e) {
+        } catch (ParseException e) {
+            e.printStackTrace();
             return false;
         }
+
         if (Integer.parseInt(strMonth) > 12 || Integer.parseInt(strMonth) == 0) {
             //身份证月份无效
             return false;
