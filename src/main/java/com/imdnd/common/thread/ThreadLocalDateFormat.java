@@ -6,6 +6,8 @@ import java.util.Date;
 
 /**
  * Thread local for simple date format
+ *
+ * @author Adam DENG
  */
 public class ThreadLocalDateFormat {
 
