@@ -18,7 +18,7 @@ public class ThreadLocalDateFormat {
         return formatter.get().format(date);
     }
 
-    private static Date stringToDate(String date) throws ParseException {
+    public static Date stringToDate(String date) throws ParseException {
         return formatter.get().parse(date);
     }
 }
