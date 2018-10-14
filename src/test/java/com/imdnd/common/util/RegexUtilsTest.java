@@ -8,7 +8,6 @@ public class RegexUtilsTest {
     @Test
     public void testStrongPassword() {
         Assert.assertFalse(RegexUtils.isStrongPassword(null));
-        Assert.assertTrue(RegexUtils.isChinese("中国"));
     }
 
 
