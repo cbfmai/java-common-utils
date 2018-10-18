@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * AES Encryption & Decryption
+ * AES Encryption and Decryption
  */
 public class CryptoUtils {
 

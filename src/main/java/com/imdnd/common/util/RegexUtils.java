@@ -69,8 +69,8 @@ public class RegexUtils {
 
     /**
      * Verify the input whether is a strong password
-     *
-     * @param input null is accepted
+     * @param input 输入密码
+     * @return 返回是否为强密码
      */
     public static boolean isStrongPassword(String input) {
         Optional<String> password = Optional.ofNullable(input);
@@ -78,11 +78,11 @@ public class RegexUtils {
     }
 
 
+
     /**
      * 校验用户名
-     *
-     * @param username
-     * @return 校验通过返回true，否则返回false
+     * @param username 用户名
+     * @return 校验通过返回true，否则返回fals
      */
     public static boolean isUsername(String username) {
         return Optional.ofNullable(username).isPresent() && Pattern.matches(REGEX_USERNAME, username);
@@ -91,7 +91,7 @@ public class RegexUtils {
     /**
      * 校验密码
      *
-     * @param password
+     * @param password 密码
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isPassword(String password) {
@@ -101,7 +101,7 @@ public class RegexUtils {
     /**
      * 校验手机号
      *
-     * @param mobile
+     * @param mobile 手机号码
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isMobile(String mobile) {
@@ -111,7 +111,7 @@ public class RegexUtils {
     /**
      * 校验邮箱
      *
-     * @param email
+     * @param email 邮箱
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isEmail(String email) {
@@ -121,7 +121,7 @@ public class RegexUtils {
     /**
      * 校验汉字
      *
-     * @param chinese
+     * @param chinese 中文字符
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isChinese(String chinese) {
@@ -131,8 +131,8 @@ public class RegexUtils {
     /**
      * 校验银行卡
      *
-     * @param idBank
-     * @return
+     * @param idBank 银行卡号
+     * @return 是否为正确的银行卡号
      */
     public static boolean isIdBank(String idBank) {
         return Optional.ofNullable(idBank).isPresent() && Pattern.matches(REGEX_ID_BANK, idBank);
@@ -141,7 +141,7 @@ public class RegexUtils {
     /**
      * 校验URL
      *
-     * @param url
+     * @param url url
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isUrl(String url) {
@@ -151,13 +151,20 @@ public class RegexUtils {
     /**
      * 校验IP地址
      *
-     * @param ipAddr
-     * @return
+     * @param ipAddr ip地址
+     * @return 返回输入是否为正确的ip
      */
     public static boolean isIPAddr(String ipAddr) {
         return Optional.ofNullable(ipAddr).isPresent() && Pattern.matches(REGEX_IP_ADDR, ipAddr);
     }
 
+    /**
+     *
+     * 判断是否为数字
+     *
+     * @param str 输入的字符串
+     * @return 是否为数字
+     */
     public static boolean isNumeric(String str) {
         return Optional.ofNullable(str).isPresent() && Pattern.matches(REGEX_NUMERIC, str);
     }
@@ -165,8 +172,8 @@ public class RegexUtils {
     /**
      * 校验身份证号码
      *
-     * @param idStr
-     * @return
+     * @param idStr 身份证号码字符串
+     * @return 是否为正确的身份证号码
      */
     public static boolean isIdCard(String idStr) {
         String[] ValCodeArr = {"1", "0", "X", "9", "8", "7", "6", "5", "4",

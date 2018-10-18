@@ -5,12 +5,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
+ * 排列组合
  * @author Adam DENG
- * @Date 2018/5/18 15:17
  */
 public class Combination {
 
+    /**
+     *  排列组合组合方法
+     *
+     * @param source 源数组
+     * @param begin 开始
+     * @param number 取几个
+     * @param result 结果
+     */
     public static void combine(Integer[] source, int begin, int number, List<Integer> result) {
         if (number == 0) {
             System.out.println(result.toString());
@@ -25,7 +34,11 @@ public class Combination {
         combine(source, begin + 1, number, result);
     }
 
-    // 方法一
+    /**
+     *
+     * @param chs  输入字符串
+     * @return 返回数组
+     */
     public static List<Integer> combine(Integer[] chs) {
 
         if (chs == null || chs.length == 0) {
@@ -42,8 +55,8 @@ public class Combination {
      *
      * 方法二
      *
-     * @param chs
-     * @return
+     * @param chs 输入字符串
+     * @return 返回数组
      */
     public static List<List<Integer>> comb(Integer[] chs) {
         List<List<Integer>> result = new ArrayList();
@@ -65,7 +78,7 @@ public class Combination {
     }
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Integer[] chs = {1, 2, 4, 8, 16, 32, 64, 128};
         List<List<Integer>> result = comb(chs);
         List<Integer> amount = new ArrayList<>();
@@ -77,7 +90,7 @@ public class Combination {
         }
         System.out.println(amount.toString());
         System.out.println(listMap.toString());
-    }
+    }*/
 
 
 }
